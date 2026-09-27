@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Pix from '../components/Pix.astro';
+import { support,site } from '../data/site';
+export function getStaticPaths() { return support.map(item => ({params:{slug:item.slug},props:{item}})); }
+const {item} = Astro.props;
+const donation = item.slug === 'doe-doacoes';
+---
+<Base title={item.title} description={item.summary}>
+  <div class="container breadcrumb"><a href="/faca-parte">← Faça parte</a><span aria-hidden="true">/</span><span>{item.title}</span></div>
+  <section class:list={['support-detail',`theme-${item.theme}`]}><div class="container detail-grid"><div><p class="eyebrow">{item.title}</p><h1>{item.heading}</h1><p class="lead">{item.summary}</p><a class="button" href={item.href}>{item.label}<span aria-hidden="true">↗</span></a></div><img class="detail-image" style={item.slug === 'mae-social' ? 'object-position:25% center' : undefined} src={item.image} alt={item.alt} width="450" height="350" fetchpriority="high" /></div></section>
+  <section class="section"><div class="container reading">{item.paragraphs.map(paragraph => <p>{paragraph}</p>)}{item.points.length > 0 && <ul class="benefits">{item.points.map(point => <li>{point}</li>)}</ul>}{!donation && <a class="button" href={item.href}>{item.label}<span aria-hidden="true">↗</span></a>}</div></section>
+  {donation && <Pix />}
+  <section class="section"><div class="container contact-box"><div><h2>Dúvidas ou mais informações? Entre em contato:</h2></div><a class="text-link" href={`mailto:${site.email}`}>{site.email}<span aria-hidden="true">↗</span></a></div></section>
+</Base>

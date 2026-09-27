@@ -1,0 +1,56 @@
+[
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/bg-Hero-Desktop.jpg",
+    "output": "/images/sobre/hero-desktop.webp",
+    "width": 1920,
+    "height": 1081
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/bg-Hero-Mobile.png",
+    "output": "/images/sobre/hero-mobile.webp",
+    "width": 900,
+    "height": 1599
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/Equipe-NossaHistoria.avif",
+    "output": "/images/sobre/historia.webp",
+    "width": 1024,
+    "height": 878
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/Nossa-Base.png",
+    "output": "/images/sobre/base.webp",
+    "width": 1000,
+    "height": 667
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/intimate-portrait-beautiful-mother-holding-her-baby.jpg",
+    "output": "/images/sobre/razao.webp",
+    "width": 1000,
+    "height": 667
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/Colaboradores/Tereza.avif",
+    "output": "/images/sobre/tereza.webp",
+    "width": 600,
+    "height": 1067
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/IconesPilares/Pilar-cuidado.png",
+    "output": "/images/sobre/pilar-cuidado.webp",
+    "width": 340,
+    "height": 283
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/IconesPilares/Pilar-conhecimento.png",
+    "output": "/images/sobre/pilar-conhecimento.webp",
+    "width": 340,
+    "height": 281
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Sobre Habitare/IconesPilares/Pilar-Formacao.png",
+    "output": "/images/sobre/pilar-formacao.webp",
+    "width": 340,
+    "height": 282
+  }
+]

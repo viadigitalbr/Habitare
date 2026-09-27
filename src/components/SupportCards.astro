@@ -1,0 +1,21 @@
+---
+import {support} from '../data/site';
+interface Props { compact?: boolean; }
+const {compact = false} = Astro.props;
+const homeImages = [
+ {src:'facaparte-sejamembro.png',alt:'Ilustração de uma mulher participando de uma conversa pelo computador.'},
+ {src:'facaparte-facadoacao.png',alt:'Ilustração de mãos acolhendo um coração.'},
+ {src:'facaparte-maesocial.png',alt:'Ilustração de uma mãe com seu bebê e uma mulher oferecendo apoio em casa.'},
+ {src:'facaparte-apadrinhe.png',alt:'Ilustração de uma mulher acolhendo um bebê.'},
+];
+const cardDescriptions: Record<string, string> = {
+  'doe-doacoes': 'Invista nos projetos da Rede Habitare',
+  'madrinha-social-e-apadrinhamento-social': 'Apadrinhe uma mãe por 4 meses e garanta atendimento terapêutico gratuito, acolhimento e prevenção de riscos.',
+};
+---
+<div class:list={['support-list', { 'support-compact': compact }]}>
+  {support.map((item,index) => <article class:list={['support-card', `theme-${item.theme}`, { 'is-reversed': index % 2 !== 0 }]}>
+    <div class="support-image"><img src={compact ? `/images/${homeImages[index].src}` : item.image} alt={compact ? homeImages[index].alt : item.alt} width="450" height="350" loading="lazy" /></div>
+    <div class="support-copy"><h3>{item.title}</h3><p>{cardDescriptions[item.slug] ?? item.summary}</p><a class="text-link" href={`/${item.slug}`}><span class="support-link-label">{compact ? 'Saiba mais' : 'SAIBA MAIS'}</span><span aria-hidden="true">↗</span></a></div>
+  </article>)}
+</div>

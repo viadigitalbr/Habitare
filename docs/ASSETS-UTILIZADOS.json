@@ -1,0 +1,179 @@
+[
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Logo/Logo-Habitare-Horizontal-fundoTransparente.png",
+    "output": "/images/logo.png",
+    "width": 1055,
+    "height": 318,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Elementos/favico.png",
+    "output": "/images/favicon.png",
+    "width": 669,
+    "height": 669,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/img_doe.jpg",
+    "output": "/images/doacao.webp",
+    "width": 450,
+    "height": 350,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/img-voluntariar.jpg",
+    "output": "/images/membro.webp",
+    "width": 450,
+    "height": 350,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/img-madrinha-social.jpg",
+    "output": "/images/apadrinhamento.webp",
+    "width": 450,
+    "height": 350,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/banner-doe.jpg",
+    "output": "/images/banner-doacao.webp",
+    "width": 1920,
+    "height": 568,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/banner_4.jpg",
+    "output": "/images/banner-apadrinhamento.webp",
+    "width": 1920,
+    "height": 597,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/banner-preciso-ajuda.jpg",
+    "output": "/images/banner-atendimento.webp",
+    "width": 1920,
+    "height": 678,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/freelancer-waving-video-call-while-working-laptop-from-home.jpg",
+    "output": "/images/banner-membro.webp",
+    "width": 1800,
+    "height": 1200,
+    "rights": "Confirmados por Viviana em 24/09/2026."
+  },
+  {
+    "source": "https://assets.zyrosite.com/mxBXpEWv9wtrJL7o/habitarebanner-AoPJMMa4nPCDK4E1.png",
+    "output": "/images/hero.webp",
+    "width": 1920,
+    "height": 900,
+    "rights": "Reaproveitamento do site de Viviana; confirmar na revisão final do conjunto."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/screen-shot-2025-10-13-at-11.45.13-am-Yan0E686K0sDeWG3.avif",
+    "output": "/images/mae-social.avif",
+    "rights": "Imagem escolhida por Viviana no QA da Home; cópia sem alterações."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/banner-preciso-ajuda-AGBbOgz2Vrf6wvgp.webp",
+    "output": "/images/banner-atendimento-editado.webp",
+    "width": 2800,
+    "height": 989,
+    "rights": "Versão editada fornecida por Viviana no QA de 25/09/2026."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Bgs/bg-Home-Oquefazemos-Desktop.png",
+    "output": "/images/o-que-fazemos-bg-desktop.png",
+    "rights": "Arquivo fornecido por Viviana para reproduzir o mockup de O que fazemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Bgs/bg-Home-Oquefazemos-Mobile.png",
+    "output": "/images/o-que-fazemos-bg-mobile.png",
+    "rights": "Arquivo fornecido por Viviana para reproduzir o mockup de O que fazemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/download-1.png",
+    "output": "/images/o-que-fazemos-acolhimento.png",
+    "rights": "Arquivo fornecido por Viviana para reproduzir o mockup de O que fazemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-consultas.png",
+    "output": "/images/ico-consultas.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-supervisao.png",
+    "output": "/images/ico-supervisao.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-psicoterapia.png",
+    "output": "/images/ico-psicoterapia.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-oficinas.png",
+    "output": "/images/ico-oficinas.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-formacao.png",
+    "output": "/images/ico-formacao.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-cursos.png",
+    "output": "/images/ico-cursos.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-consultoria.png",
+    "output": "/images/ico-consultoria.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Icones/ico-grupomaes.png",
+    "output": "/images/ico-grupomaes.png",
+    "rights": "Ícone fornecido por Viviana para o layout O que oferecemos."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Banners/banner-institucional1-desktop.png",
+    "output": "/images/banner-institucional1-desktop.png",
+    "rights": "Imagem fornecida por Viviana para o primeiro banner institucional."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Banners/banner-institucional1-mobile.png",
+    "output": "/images/banner-institucional1-mobile.png",
+    "rights": "Imagem fornecida por Viviana para o primeiro banner institucional."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Faca Parte/facaparte-sejamembro.png",
+    "output": "/images/facaparte-sejamembro.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Faca Parte/facaparte-facadoacao.png",
+    "output": "/images/facaparte-facadoacao.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Faca Parte/facaparte-maesocial.png",
+    "output": "/images/facaparte-maesocial.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Faca Parte/facaparte-apadrinhe.png",
+    "output": "/images/facaparte-apadrinhe.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Bgs/bg-Home-FacaParte-Desktop.png",
+    "output": "/images/bg-Home-FacaParte-Desktop.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  },
+  {
+    "source": "/Users/vivianadelbianco/Clientes/Habitare/Assets/Imagens/Bgs/bg-Home-FacaParte-Mobile.png",
+    "output": "/images/bg-Home-FacaParte-Mobile.png",
+    "rights": "Arquivo fornecido por Viviana para o novo Faça Parte da Home."
+  }
+]

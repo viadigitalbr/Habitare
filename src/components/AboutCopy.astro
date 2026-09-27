@@ -1,0 +1,10 @@
+---
+import copy from '../data/about-copy.json';
+interface Props { section: number; hero?: boolean; separateSentences?: boolean; }
+const {section, hero = false, separateSentences = false} = Astro.props;
+const content = copy[section - 1];
+import {format} from '../data/about-format';
+---
+{content.eyebrow && <p class="eyebrow">{content.eyebrow}</p>}
+{hero ? <h1>{content.title}</h1> : <h2>{separateSentences ? content.title.split('. ').map((sentence, index, sentences) => <span class="title-sentence">{sentence}{index < sentences.length - 1 ? '. ' : ''}</span>) : content.title}</h2>}
+<div class="about-prose">{content.paragraphs.filter(Boolean).map(text => <p set:html={format(text)} />)}</div>

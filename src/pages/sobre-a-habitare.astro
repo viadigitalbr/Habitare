@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import AboutCopy from '../components/AboutCopy.astro';
+import copy from '../data/about-copy.json';
+import collaborators from '../data/collaborators.json';
+import {timeline, pillars, values, projects} from '../data/about';
+import {paths} from '../data/site';
+import '../styles/about.css';
+---
+<Base title="Sobre a Rede Habitare | Saúde Mental Perinatal" exactTitle description="Conheça a Rede Habitare, ONG que desde 2000 atua com saúde mental perinatal, atendimento, formação profissional e fortalecimento do vínculo mãe-bebê." socialImage="/images/sobre/hero-desktop.webp" socialImageAlt="Ilustração em aquarela de uma mulher segurando um bebê.">
+  <div class="about-page">
+    <section class="about-hero">
+      <picture class="about-hero-art"><source media="(max-width: 680px)" srcset="/images/sobre/hero-mobile.webp" width="900" height="1599" /><img src="/images/sobre/hero-desktop.webp" alt="" width="1920" height="1081" fetchpriority="high" /></picture>
+      <div class="container"><div class="about-hero-copy"><AboutCopy section={1} hero /></div></div>
+    </section>
+    <section class="section about-reason"><div class="container">
+      <div class="about-split reason-grid"><div><AboutCopy section={2} /></div><img class="reason-photo" src="/images/sobre/razao.webp" alt="Uma mulher segura uma criança pequena junto ao corpo." width="1000" height="667" loading="lazy" /></div>
+      <p class="about-statement">{copy[1].highlight}</p>
+    </div></section>
+    <section class="section about-history"><div class="container">
+      <div class="about-split history-grid"><div class="history-photo"><img src="/images/sobre/historia.webp" alt="Integrantes da equipe Habitare reunidas diante de uma apresentação em um auditório." width="1024" height="878" loading="lazy" /></div><div><AboutCopy section={3} /></div></div>
+      <h3 class="timeline-heading">Linha do tempo</h3><ol class="about-timeline">{timeline.map(item => <li><span class="timeline-year">{item.year}</span><p>{item.text}</p></li>)}</ol>
+    </div></section>
+    <section class="section about-pillars"><div class="container">
+      <div class="about-section-intro centered"><AboutCopy section={4} /></div>
+      <div class="pillar-grid">{pillars.map(pillar => <article><img src={`/images/sobre/pilar-${pillar.image}.webp`} alt="" width="340" height="283" loading="lazy" /><h3>{pillar.name}</h3><p class="pillar-title">{pillar.title}</p><p>{pillar.text}</p></article>)}</div>
+      <p class="pillar-closing">Quando essas três frentes se encontram, o cuidado deixa de ser uma ação isolada e se transforma em rede.</p>
+    </div></section>
+    <div class="about-foundation"><section class="section"><div class="container about-split base-grid"><div><AboutCopy section={5} /></div><img class="base-photo" src="/images/sobre/base.webp" alt="Um bebê envolve com a mão o dedo de uma pessoa adulta." width="1000" height="667" loading="lazy" /></div></section>
+      <section class="about-mission"><div class="container"><div class="mission-inner"><AboutCopy section={6} /></div></div></section>
+    </div>
+    <div class="about-values-journey"><section class="section"><div class="container"><div class="about-section-intro centered"><AboutCopy section={7} /></div><div class="values-grid">{values.map(([title,text],i) => <article><span class="value-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+      <section class="section about-projects"><div class="container projects-grid"><div><AboutCopy section={8} /></div><ul class="project-list">{projects.map(name => <li>{name}</li>)}</ul></div></section>
+    </div>
+    <div class="about-people"><section class="section about-network"><div class="container"><div class="about-section-intro centered"><AboutCopy section={9} /></div>
+
+    </div></section>
+      <section class="section about-collaborators" aria-labelledby="collaborators-heading"><div class="container">
+        <div class="about-section-intro centered"><p class="eyebrow">QUEM FAZ A HABITARE</p><h2 id="collaborators-heading">Uma rede feita de pessoas que cuidam de pessoas.</h2></div>
+        <ul class="collaborator-grid">{collaborators.map(person => <li><article>
+          <img src={person.image} alt={`Foto de ${person.name}, colaborador(a) na Rede Habitare`} width={person.width} height={person.height} style={{objectPosition: person.position}} loading="lazy" decoding="async" />
+          <h3>{person.name}</h3><p>{person.role}</p>
+        </article></li>)}</ul>
+      </div></section>
+      <section class="section about-founder"><div class="container about-split founder-grid"><figure><img src="/images/sobre/tereza.webp" alt="Tereza Marques de Oliveira" width="600" height="1067" loading="lazy" /><figcaption>Tereza Marques de Oliveira</figcaption></figure><div><AboutCopy section={10} /></div></div></section>
+      <section class="section about-ending"><div class="container centered"><div class="about-section-intro"><AboutCopy section={11} separateSentences /></div><div class="actions"><a class="button" href={paths.apoio}>Faça parte da nossa rede <span aria-hidden="true">↗</span></a></div></div></section>
+    </div>
+  </div>
+</Base>

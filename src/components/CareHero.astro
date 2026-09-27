@@ -1,0 +1,17 @@
+---
+import { paths } from '../data/site';
+interface Props { page?: boolean; }
+const { page = false } = Astro.props;
+const Heading = page ? 'h1' : 'h2';
+---
+<section class:list={['care-hero', {'care-page': page}]}>
+  <img class="care-art" src="/images/banner-atendimento-editado.webp" alt="" width="2800" height="989" loading={page ? 'eager' : 'lazy'} />
+  <div class="container care-inner"><div class="care-copy">
+    <p class="eyebrow">{page ? 'Atendimento · Rede Habitare' : 'Precisa de atendimento?'}</p>
+    <Heading>Você não está sozinha.</Heading>
+    <p class="care-lead">Estamos aqui para cuidar de você.</p>
+    <p>Se você está enfrentando um momento difícil e precisa de apoio, encontre um espaço de acolhimento e escuta na Habitare.</p>
+    <a class="button" href={page ? '#atendimentos' : paths.atendimento}>{page ? 'Encontre seu atendimento' : 'Conheça os atendimentos'} <span aria-hidden="true">↗</span></a>
+    <p class="care-note">{page ? 'Atendimentos online · Conheça as modalidades abaixo.' : 'Acolhimento e escuta, onde você estiver.'}</p>
+  </div></div>
+</section>

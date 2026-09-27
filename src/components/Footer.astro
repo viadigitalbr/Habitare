@@ -1,0 +1,11 @@
+---
+import {site} from '../data/site';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="/" aria-label="Habitare — início"><img src="/images/logo.png" alt="Habitare" width="196" height="60" loading="lazy" /></a>
+    <div><h2>Fale com a Habitare</h2><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.instagram}>Instagram · @rede.habitare</a></div>
+    <div><h2>Onde estamos</h2><p>{site.address}</p></div>
+  </div>
+  <div class="container footer-bottom"><p>© {new Date().getFullYear()} {site.legalName}.</p><p>CNPJ: {site.cnpj}</p></div>
+</footer>

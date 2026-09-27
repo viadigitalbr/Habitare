@@ -1,0 +1,18 @@
+---
+import {site} from '../data/site';
+---
+<section id="como-doar" class="donation-section container">
+  <h2 class="centered">Escolha como contribuir</h2>
+  <div class="donation-grid">
+    <div class="donation-box theme-green"><p class="eyebrow">Pix</p><h3>Um gesto de cuidado</h3><p>A chave Pix é o CNPJ da Habitare.</p><p class="pix-key" id="pix-value">{site.cnpj}</p><button class="button" data-copy-pix={site.cnpj}>Copiar chave Pix <span aria-hidden="true">⧉</span></button><p class="copy-status" role="status" aria-live="polite"></p></div>
+    <div class="donation-box theme-lilac"><p class="eyebrow">Transferência bancária</p><h3>Banco Itaú</h3><dl><div><dt>Agência</dt><dd>8463</dd></div><div><dt>Conta corrente</dt><dd>08200-1</dd></div><div><dt>CNPJ</dt><dd>{site.cnpj}</dd></div></dl></div>
+  </div>
+</section>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-copy-pix]');
+  button?.addEventListener('click', async () => {
+    const status = document.querySelector<HTMLElement>('.copy-status');
+    try { await navigator.clipboard.writeText(button.dataset.copyPix || ''); if (status) status.textContent = 'Chave Pix copiada. Use-a no aplicativo do seu banco.'; }
+    catch { if (status) status.textContent = 'Não foi possível copiar automaticamente. Selecione e copie a chave acima.'; }
+  });
+</script>

@@ -1,0 +1,32 @@
+---
+import { paths, site } from '../data/site';
+const current = Astro.url.pathname;
+const links = [{ label: 'Início', href: '/' }, { label: 'Sobre a Habitare', href: paths.sobre }, { label: 'Atendimento', href: paths.atendimento }, { label: 'Faça parte', href: paths.apoio }];
+---
+<header class:list={["site-header", {"header-overlay": current === "/" || current === paths.atendimento || current === paths.sobre}]}>
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Rede Habitare — início"><img src="/images/logo.png" alt="Habitare" width="208" height="64" /></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation"><span>Menu</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5" /></svg></button>
+    <nav id="navigation" aria-label="Navegação principal">
+      {links.map(link => <a href={link.href} aria-current={current === link.href ? 'page' : undefined}>{link.label}</a>)}
+      <a href={site.instagram} class="instagram" aria-label="Habitare no Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" /><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.documentElement.classList.add('js');
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, {passive: true});
+  const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#navigation');
+  if (button && nav) {
+    const setOpen = (open: boolean) => { button.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open', open); header?.classList.toggle('has-menu', open); };
+    button.addEventListener('click', () => setOpen(button.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { setOpen(false); button.focus(); } });
+    nav.addEventListener('click', event => { if ((event.target as Element).closest('a')) setOpen(false); });
+    document.addEventListener('click', event => { if (!(event.target as Element).closest('.site-header')) setOpen(false); });
+    matchMedia('(min-width: 900px)').addEventListener('change', () => setOpen(false));
+  }
+</script>

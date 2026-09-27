@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Carousel from '../components/Carousel.astro';
+import CareHero from '../components/CareHero.astro';
+import SupportCards from '../components/SupportCards.astro';
+import {paths} from '../data/site';
+const services = ['Consultas','Supervisão','Psicoterapia','Oficinas','Formação','Cursos','Consultoria','Grupos de mães'];
+const serviceIcons = ["ico-consultas.png", "ico-supervisao.png", "ico-psicoterapia.png", "ico-oficinas.png", "ico-formacao.png", "ico-cursos.png", "ico-consultoria.png", "ico-grupomaes.png"];
+---
+<Base title="Cuidando de quem cuida na parentalidade" description="Acolhimento, escuta e cuidado na parentalidade. Conheça os atendimentos da Rede Habitare e saiba como fazer parte.">
+  <Carousel />
+  <section class="section about-home" id="o-que-fazemos"><div class="container about-grid">
+    <div class="about-visual"><div class="about-photo"><img src="/images/o-que-fazemos-acolhimento.png" alt="Uma mãe com seu bebê conversa com uma mulher que toca seu ombro em um gesto de acolhimento." width="1312" height="1200" loading="lazy" /></div></div>
+    <div class="about-copy"><p class="eyebrow">Acolhimento · escuta · suporte</p><h2>O que fazemos</h2><p class="lead">Uma rede de cuidado para quem cuida.</p><p>A Rede Habitare é formada por profissionais comprometidos com questões da parentalidade, oferecendo acolhimento, escuta e suporte.</p><p>Ao se voluntariar, você fará parte de uma equipe que atua com base em psicanálise, receberá supervisão qualificada, além de integrar uma rede de formação continuada.</p><a class="button" href={paths.sobre}>Conheça a Habitare <span aria-hidden="true">↗</span></a></div>
+  </div></section>
+  <section class="section offerings" id="o-que-oferecemos"><div class="container"><p class="eyebrow centered">Diferentes caminhos para o cuidado</p><h2 class="centered">O que oferecemos</h2><ul class="service-grid">{services.map((service,i) => <li><img class="service-watercolor" src={`/images/${serviceIcons[i]}`} alt="" width="376" height="376" loading="lazy" /><h3>{service}</h3></li>)}</ul></div></section>
+  <section class="section partnerships"><div class="container"><p class="eyebrow centered">Laços que fortalecem nossa atuação</p><h2 class="centered">Parcerias</h2><ul class="partners"><li><strong>PUC São Paulo</strong><span>Cursos de Psicologia</span></li><li><strong>Coletivo Consultas Terapêuticas</strong></li><li><strong>Casa Ângela</strong><span>Centro de parto humanizado</span></li></ul></div></section>
+  <section class="section participation-home" id="faca-parte"><div class="container"><div class="section-heading"><div><p class="eyebrow">Há muitas formas de cuidar</p><h2>Faça parte da nossa rede</h2></div><a class="text-link" href="/faca-parte">Conheça todas as formas <span aria-hidden="true">↗</span></a></div><SupportCards compact /></div></section>
+  <CareHero />
+</Base>
