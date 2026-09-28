@@ -23,6 +23,6 @@ export const banners = [
     text: 'Sua contribuição ajuda a sustentar o cuidado psicológico de mães e bebês.',
     cta: 'Fazer uma doação', href: '/doe-doacoes',
     secondaryCta: '', secondaryHref: '',
-    desktop: '/images/banner-doacao.webp', mobile: '/images/doacao.webp', position: '82% center', theme: 'green',
+    desktop: '/images/banner-doe-desktop.png', mobile: '/images/banner-doe-mobile.png', position: '82% center', theme: 'green',
   },
 ];

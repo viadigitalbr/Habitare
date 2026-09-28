@@ -8,7 +8,7 @@ const links = [{ label: 'Início', href: '/' }, { label: 'Sobre a Habitare', hre
     <a href="/" class="brand" aria-label="Rede Habitare — início"><img src="/images/logo.png" alt="Habitare" width="208" height="64" /></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation"><span>Menu</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5" /></svg></button>
     <nav id="navigation" aria-label="Navegação principal">
-      {links.map(link => <a href={link.href} aria-current={current === link.href ? 'page' : undefined}>{link.label}</a>)}
+      {links.map(link => <a href={link.href} aria-current={(current === link.href || (current === '/seja-membro' && link.href === paths.apoio)) ? 'page' : undefined}>{link.label}</a>)}
       <a href={site.instagram} class="instagram" aria-label="Habitare no Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" /><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
     </nav>
   </div>

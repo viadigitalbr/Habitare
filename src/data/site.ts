@@ -11,7 +11,8 @@ export const site = {
 export const forms = {
   gratuito: 'https://docs.google.com/forms/d/e/1FAIpQLSeplR2VKaCKz6jEYrGGlZsUkQUUcaa3xj6sXYuDKzwA7paIkA/viewform',
   clinica: 'https://forms.gle/Zw17QmrChNraHybL7',
-  membro: 'https://forms.gle/EgzsqDg22MhYUcEH9',
+  // Destino temporário autorizado; substituir pela URL institucional quando disponível.
+  membro: (import.meta.env.PUBLIC_MEMBER_FORM_URL ?? 'https://forms.gle/EgzsqDg22MhYUcEH9').trim(),
   maeSocial: 'https://docs.google.com/forms/d/e/1FAIpQLSfH3aGN4lhrx2ZQQM0dQUku8XKSYuyGQw72o274upsE8tfUzA/viewform',
   apadrinhamento: 'https://forms.gle/G2XstMpdePR5vLYx5',
 };
@@ -26,17 +27,13 @@ export const paths = {
 
 export const support = [
   {
-    slug: 'quero-ser-membro-saude-mental',
+    slug: 'seja-membro',
     title: 'Seja membro da Habitare',
-    heading: 'Faça parte do nosso time',
+    heading: 'Sua escuta pode fazer parte desta rede de cuidado.',
     summary: 'Junte-se a nós e faça parte de uma rede que transforma vidas de mães e bebês.',
     image: '/images/facaparte-sejamembro.png', alt: 'Ilustração de uma mulher participando de uma conversa pelo computador.',
-    theme: 'rose', label: 'Inscreva-se', href: forms.membro,
-    paragraphs: [
-      'Nosso trabalho é possível graças a uma rede de profissionais comprometidos com questões da parentalidade, oferecendo acolhimento, escuta e suporte.',
-      'Ao se voluntariar, você fará parte de uma equipe que atua com base na psicanálise, recebe supervisão qualificada e participa de uma rede de aprendizado e troca constante, sempre com o objetivo de fortalecer vínculos familiares.',
-      'Se você deseja exercer a sua cidadania e responsabilidade social trabalhando junto à uma população em vulnerabilidade social, junte-se a nós!',
-    ],
+    theme: 'rose', label: 'QUERO FAZER PARTE', href: '/seja-membro',
+    paragraphs: [],
     points: [],
   },
   {

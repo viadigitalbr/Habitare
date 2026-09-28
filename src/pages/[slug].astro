@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Pix from '../components/Pix.astro';
 import { support,site } from '../data/site';
-export function getStaticPaths() { return support.map(item => ({params:{slug:item.slug},props:{item}})); }
+export function getStaticPaths() { return support.filter(item => item.slug !== 'seja-membro').map(item => ({params:{slug:item.slug},props:{item}})); }
 const {item} = Astro.props;
 const donation = item.slug === 'doe-doacoes';
 ---

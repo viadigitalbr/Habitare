@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/quero-ser-membro-saude-mental",
+      "destination": "/seja-membro",
+      "statusCode": 301
+    }
+  ]
+}
