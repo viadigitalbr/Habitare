@@ -69,7 +69,7 @@ h1,h2,h3,h4,h5,h6,.modality h2,.footer-grid h2{font-family:var(--title)}
  .showcase .slide{display:block;min-height:660px}
  .showcase .slide-image{position:absolute;inset:0;height:100%;z-index:-2}
  .showcase .slide-image img{width:100%;height:100%;object-fit:cover;object-position:center!important}
- .showcase .slide-inner{position:relative;min-height:660px;width:100%;padding:120px 52px 95px;background:transparent;display:flex;align-items:center}
+ .showcase .slide-inner{position:relative;min-height:660px;width:100%;padding:96px 52px 95px;background:transparent;display:flex;align-items:flex-start}
  .showcase .slide-copy{width:100%}
  .showcase .slide h2{font-size:clamp(1.9rem,7.8vw,2.5rem);min-height:0;text-wrap:balance}
  .showcase .slide-description{min-height:0;margin:22px 0 26px;font-size:1rem}

@@ -18,15 +18,62 @@ const items = banners.filter(banner => banner.active);
     const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
     const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
     const announce = root.querySelector<HTMLElement>('[data-announcement]');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = reducedMotion.matches;
+    let hovered = root.matches(':hover');
+    let focused = root.contains(document.activeElement);
+    let timer: ReturnType<typeof setTimeout> | undefined;
     let active = 0;
-    const show = (index: number) => {
-      active = (index + slides.length) % slides.length;
-      slides.forEach((slide,i) => { slide.hidden = i !== active; });
-      dots.forEach((dot,i) => dot.setAttribute('aria-current', String(i === active)));
-      if (announce) announce.textContent = `Destaque ${active + 1} de ${slides.length}: ${slides[active].querySelector('h2')?.textContent}`;
+    let animations: Animation[] = [];
+    let transition = 0;
+    const schedule = () => {
+      clearTimeout(timer);
+      if (slides.length > 1 && !paused && !hovered && !focused && !document.hidden) {
+        timer = setTimeout(() => show(active + 1, false), 5000);
+      }
     };
+    const show = (index: number, manual = true) => {
+      const previous = active;
+      active = (index + slides.length) % slides.length;
+      const revision = ++transition;
+      animations.forEach(animation => animation.cancel());
+      animations = [];
+      slides.forEach((slide,i) => {
+        slide.hidden = i !== active;
+        slide.inert = i !== active;
+        slide.style.zIndex = i === active ? '1' : '0';
+      });
+      if (previous !== active && !reducedMotion.matches) {
+        const outgoing = slides[previous];
+        outgoing.hidden = false;
+        const options = { duration: 700, easing: 'cubic-bezier(.22,.61,.36,1)' };
+        const fadeOut = outgoing.animate([{ opacity: 1 }, { opacity: 0 }], options);
+        const fadeIn = slides[active].animate([{ opacity: 0 }, { opacity: 1 }], options);
+        animations.push(fadeOut, fadeIn);
+        const copy = slides[active].querySelector<HTMLElement>('.slide-copy');
+        if (copy) animations.push(copy.animate([{ transform: 'translateY(14px)' }, { transform: 'translateY(0)' }], options));
+        fadeOut.finished.then(() => {
+          if (revision === transition) outgoing.hidden = true;
+        }).catch(() => {});
+      }
+      dots.forEach((dot,i) => dot.setAttribute('aria-current', String(i === active)));
+      if (announce && manual) announce.textContent = `Destaque ${active + 1} de ${slides.length}: ${slides[active].querySelector('h2')?.textContent}`;
+      schedule();
+    };
+    root.addEventListener('mouseenter', () => { hovered = true; schedule(); });
+    root.addEventListener('mouseleave', () => { hovered = false; schedule(); });
+    root.addEventListener('focusin', () => { focused = true; schedule(); });
+    root.addEventListener('focusout', event => { focused = root.contains(event.relatedTarget as Node | null); schedule(); });
+    document.addEventListener('visibilitychange', schedule);
+    reducedMotion.addEventListener('change', () => { paused = reducedMotion.matches; show(active, false); });
+    schedule();
     dots.forEach((dot,i) => dot.addEventListener('click', () => show(i)));
     root.querySelector('[data-previous]')?.addEventListener('click', () => show(active - 1));
     root.querySelector('[data-next]')?.addEventListener('click', () => show(active + 1));
   }
 </script>
+
+<style>
+  .slides{display:grid;isolation:isolate;overflow:hidden}
+  .slides > .slide{grid-area:1 / 1;min-width:0}
+</style>
