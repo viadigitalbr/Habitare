@@ -11,8 +11,8 @@ export const site = {
 export const forms = {
   gratuito: 'https://docs.google.com/forms/d/e/1FAIpQLSeplR2VKaCKz6jEYrGGlZsUkQUUcaa3xj6sXYuDKzwA7paIkA/viewform',
   clinica: 'https://forms.gle/Zw17QmrChNraHybL7',
-  // Destino temporário autorizado; substituir pela URL institucional quando disponível.
-  membro: (import.meta.env.PUBLIC_MEMBER_FORM_URL ?? 'https://forms.gle/EgzsqDg22MhYUcEH9').trim(),
+  // Formulário institucional de candidatura; permite substituição pela configuração.
+  membro: (import.meta.env.PUBLIC_MEMBER_FORM_URL ?? 'https://forms.gle/dc11j1LE5uw2WjR49').trim(),
   maeSocial: 'https://docs.google.com/forms/d/e/1FAIpQLSfH3aGN4lhrx2ZQQM0dQUku8XKSYuyGQw72o274upsE8tfUzA/viewform',
   apadrinhamento: 'https://forms.gle/G2XstMpdePR5vLYx5',
 };
