@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import {support} from '../data/site';
 interface Props { compact?: boolean; }
 const {compact = false} = Astro.props;
@@ -16,6 +17,6 @@ const cardDescriptions: Record<string, string> = {
 <div class:list={['support-list', { 'support-compact': compact }]}>
   {support.map((item,index) => <article class:list={['support-card', `theme-${item.theme}`, { 'is-reversed': index % 2 !== 0 }]}>
     <div class="support-image"><img src={compact ? `/images/${homeImages[index].src}` : item.image} alt={compact ? homeImages[index].alt : item.alt} width="450" height="350" loading="lazy" /></div>
-    <div class="support-copy"><h3>{item.title}</h3><p>{cardDescriptions[item.slug] ?? item.summary}</p><a class="text-link" href={`/${item.slug}`}><span class="support-link-label">{compact ? 'Saiba mais' : 'SAIBA MAIS'}</span><span aria-hidden="true">↗</span></a></div>
+    <div class="support-copy"><h3>{item.title}</h3><p>{cardDescriptions[item.slug] ?? item.summary}</p><a class="text-link" href={`/${item.slug}`}><span class="support-link-label">{compact ? 'Saiba mais' : 'SAIBA MAIS'}</span><span aria-hidden="true"><Arrow /></span></a></div>
   </article>)}
 </div>

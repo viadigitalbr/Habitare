@@ -203,7 +203,7 @@ next.addEventListener('click', async () => {
   $<HTMLButtonElement>('[data-copy-pix]').disabled = false;
   submit.disabled = false;
   notice('[data-preview-notice]', '');
-  busy = true; next.disabled = true; next.textContent = 'Conferindo seu pedido…'; editable.disabled = true;
+  busy = true; next.disabled = true; next.firstChild!.textContent = 'Conferindo seu pedido… '; editable.disabled = true;
   notice('[data-submit-status]', '');
   try {
     const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, reviewedTotal: result.totals.total }), signal: AbortSignal.timeout(15000) });
@@ -218,7 +218,7 @@ next.addEventListener('click', async () => {
     editable.disabled = false;
     if (result.fields) fieldErrors(result.fields);
     notice('[data-submit-status]', messages[result.code || 'service_unavailable'] || messages.service_unavailable);
-  } finally { busy = false; editable.disabled = false; next.textContent = 'Pagamento →'; update(); }
+  } finally { busy = false; editable.disabled = false; next.firstChild!.textContent = 'Pagamento '; update(); }
 });
 $('[data-copy-pix]').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(BOOK.pix); $('[data-copy-status]').textContent = 'Chave Pix copiada'; trackBook('livro_pix_copy'); }

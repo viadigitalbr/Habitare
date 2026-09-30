@@ -1,0 +1,7 @@
+---
+interface Props { direction?: 'up-right' | 'right' | 'left'; }
+const { direction = 'up-right' } = Astro.props;
+const paths = { 'up-right': 'M6 18 18 6M6 6h12v12', right: 'M4 12h16m-7-7 7 7-7 7', left: 'M20 12H4m7-7-7 7 7 7' };
+---
+<svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[direction]} /></svg>
+<style>.arrow-icon{display:inline-block;width:1.2em;height:1.2em;flex-shrink:0;vertical-align:middle}</style>

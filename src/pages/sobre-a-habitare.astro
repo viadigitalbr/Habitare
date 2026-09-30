@@ -1,4 +1,5 @@
 ---
+import Arrow from '../components/Arrow.astro';
 import Base from '../layouts/Base.astro';
 import AboutCopy from '../components/AboutCopy.astro';
 import copy from '../data/about-copy.json';
@@ -43,7 +44,7 @@ import '../styles/about.css';
         </article></li>)}</ul>
       </div></section>
       <section class="section about-founder"><div class="container about-split founder-grid"><figure><img src="/images/sobre/tereza.webp" alt="Tereza Marques de Oliveira" width="600" height="1067" loading="lazy" /><figcaption>Tereza Marques de Oliveira</figcaption></figure><div><AboutCopy section={10} /></div></div></section>
-      <section class="section about-ending"><div class="container centered"><div class="about-section-intro"><AboutCopy section={11} separateSentences /></div><div class="actions"><a class="button" href={paths.apoio}>Faça parte da nossa rede <span aria-hidden="true">↗</span></a></div></div></section>
+      <section class="section about-ending"><div class="container centered"><div class="about-section-intro"><AboutCopy section={11} separateSentences /></div><div class="actions"><a class="button" href={paths.apoio}>Faça parte da nossa rede <span aria-hidden="true"><Arrow /></span></a></div></div></section>
     </div>
   </div>
 </Base>

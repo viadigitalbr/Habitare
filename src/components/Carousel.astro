@@ -1,16 +1,17 @@
 ---
+import Arrow from './Arrow.astro';
 import { banners } from '../data/banners';
 const items = banners.filter(banner => banner.active);
 ---
 <section class="showcase" aria-roledescription="carrossel" aria-label="Destaques da Habitare" data-carousel>
   <h1 class="sr-only">Cuidando de quem cuida na parentalidade — Rede Habitare</h1>
   <div class="slides">
-    {items.map((banner, index) => <div class:list={['slide', `theme-${banner.theme}`]} data-slide hidden={index !== 0} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`}>
+    {items.map((banner, index) => <div class:list={['slide', `theme-${banner.theme}`]} data-slide data-banner={banner.id} hidden={index !== 0} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`}>
       <picture class="slide-image"><source media="(max-width: 680px)" srcset={banner.mobile} /><img src={banner.desktop} alt="" width="1920" height="640" style={`object-position:${banner.position}`} loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'auto'} /></picture>
-      <div class="container slide-inner"><div class="slide-copy"><p class="eyebrow">{banner.eyebrow}</p><h2>{banner.title}</h2><p class="slide-description">{banner.text}</p><div class="actions"><a class="button" href={banner.href}>{banner.cta}<span aria-hidden="true">↗</span></a>{banner.secondaryCta && <a class="text-link" href={banner.secondaryHref}>{banner.secondaryCta}</a>}</div></div></div>
+      <div class="container slide-inner"><div class="slide-copy"><p class="eyebrow">{banner.eyebrow}</p><h2>{banner.title}</h2><p class="slide-description">{banner.text}</p><div class="actions"><a class="button" href={banner.href}>{banner.cta}<span aria-hidden="true"><Arrow /></span></a>{banner.secondaryCta && <a class="text-link" href={banner.secondaryHref}>{banner.secondaryCta}</a>}</div></div></div>
     </div>)}
   </div>
-  {items.length > 1 && <div class="carousel-controls"><div class="carousel-dots" aria-label="Escolher destaque">{items.map((banner,index) => <button data-go={index} aria-label={`Mostrar destaque: ${banner.eyebrow}`} aria-current={index === 0 ? 'true' : 'false'}><span></span></button>)}</div><div class="carousel-navigation"><button data-previous aria-label="Destaque anterior">←</button><button data-next aria-label="Próximo destaque">→</button></div><p class="sr-only" data-announcement aria-live="polite" aria-atomic="true"></p></div>}
+  {items.length > 1 && <div class="carousel-controls"><div class="carousel-dots" aria-label="Escolher destaque">{items.map((banner,index) => <button data-go={index} aria-label={`Mostrar destaque: ${banner.eyebrow}`} aria-current={index === 0 ? 'true' : 'false'}><span></span></button>)}</div><div class="carousel-navigation"><button data-previous aria-label="Destaque anterior"><Arrow direction="left" /></button><button data-next aria-label="Próximo destaque"><Arrow direction="right" /></button></div><p class="sr-only" data-announcement aria-live="polite" aria-atomic="true"></p></div>}
 </section>
 <script>
   import { trackBook } from '../lib/analytics';
