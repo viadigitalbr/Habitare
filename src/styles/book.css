@@ -1,0 +1,69 @@
+.book-page{--plum:#b03f24;--soft-plum:#f5eadf;--accent:#b03f24}
+.book-page h2,.book-page h3{color:var(--plum)}
+.book-page .button:hover{background:#91311b;border-color:#91311b}
+.book-hero{position:relative;isolation:isolate;background:#f4e7d3;overflow:hidden}
+.book-hero-background{position:absolute;inset:0;z-index:-1}
+.book-hero-background img{width:100%;height:100%;object-fit:cover;object-position:center}
+.book-hero-grid{min-height:620px;padding-block:86px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.book-hero-copy{max-width:560px;width:50%}.book-hero-copy .lead{margin-top:26px;max-width:500px}
+.book-cover{width:100%;height:auto;box-shadow:10px 16px 30px #60452b26}
+.book-hero-action{margin-top:30px}
+.book-dialogue{background:var(--soft-plum)}.book-facts-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:12%;align-items:center;max-width:1000px}
+.book-facts-cover{max-width:320px;justify-self:center}.book-facts-grid h2{margin-bottom:12px}.book-subtitle{font-family:var(--title);font-size:1.35rem;line-height:1.5;margin-bottom:26px}
+.book-facts{font-size:.92rem;margin-block:24px}.book-facts div{display:flex;gap:20px}.book-facts dt{min-width:80px}.book-facts dd{margin:0}
+.book-price{color:var(--accent);font-family:var(--title);font-size:2rem;margin-bottom:24px}.book-price span{font-family:var(--body);font-size:.86rem;display:block}
+.book-purchase{background:#f8f3ed;scroll-margin-top:110px}.book-purchase-intro{margin:0 auto 45px}.book-order{max-width:1080px;margin:auto;scroll-margin-top:110px}
+.book-order fieldset{min-width:0;border:0;padding:0;margin:0}.book-order legend,.book-order h3{font-family:var(--title);font-size:1.4rem;color:var(--plum);font-weight:500;margin-bottom:20px;line-height:1.35}
+.book-order .book-form-block{margin-block:32px;padding-bottom:28px;border-bottom:1px solid var(--line)}.book-order .book-form-block legend{padding:0}
+.book-progress{display:flex;gap:28px;flex-wrap:wrap;list-style:none;padding:0;margin:32px 0;color:var(--ink);font-size:.9rem}.book-progress [aria-current]{color:var(--plum);font-weight:700}
+.book-order label{display:block;font-size:.94rem}.book-order input:not([type=radio]):not([type=checkbox]),.book-order select{font:inherit;color:var(--ink);background:var(--white);border:1px solid #a5a097;border-radius:5px;min-height:48px;padding:10px 12px;width:100%;min-width:0}
+.book-order input:focus-visible,.book-order select:focus-visible{outline:3px solid var(--plum);outline-offset:3px}.book-order [aria-invalid=true]{border-color:#9b342b!important;outline-color:#9b342b}
+.book-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin-top:20px}.book-field label{margin-bottom:6px}.book-field-error{color:#932f26;font-size:.88rem;line-height:1.45;margin-top:6px;min-height:0}.book-field-error:empty{display:none}
+.book-order .book-quantity{display:flex;align-items:center;max-width:190px;margin:8px 0 18px;gap:8px}.book-quantity button{min-width:44px;min-height:48px;border:1px solid var(--line);border-radius:5px;background:var(--white);font-size:1.3rem}.book-order .book-quantity input{width:84px;text-align:center;-moz-appearance:textfield}.book-quantity input::-webkit-inner-spin-button{appearance:none}.book-subtotal{display:block}
+.book-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.book-order .book-choice{display:flex;align-items:flex-start;gap:12px;padding:20px;border:1px solid #a5a097;border-radius:8px;background:#ffffff75;cursor:pointer}.book-choice:has(input:checked){border-color:var(--plum);background:var(--soft-plum);box-shadow:inset 0 0 0 1px var(--plum)}.book-choice input,.book-consent input{width:20px;height:20px;min-width:20px;margin:3px 0 0;accent-color:var(--plum)}.book-choice strong,.book-choice small{display:block}.book-choice small{font-size:.83rem;line-height:1.5;margin-top:8px}.book-small{font-size:.88rem}.book-freight-info{font-size:.94rem}.book-freight-info dl>div{display:flex;justify-content:space-between;gap:20px;margin-bottom:8px}.book-freight-info dd{white-space:nowrap;margin:0}
+.book-summary{align-self:start;position:sticky;top:110px;background:var(--white);padding:28px;border:1px solid var(--line);border-radius:10px;margin:0}.book-summary dl{margin:0}.book-summary dl>div{display:flex;justify-content:space-between;gap:24px;padding:7px 0}.book-summary dd{margin:0;text-align:right;max-width:60%;overflow-wrap:anywhere}.book-total{margin-top:14px;border-top:1px solid var(--line);padding-top:22px!important;align-items:center}.book-total dd{font-size:1.45rem;font-family:var(--title);color:var(--accent)}
+.book-notice{padding:16px 20px;border-left:3px solid var(--plum);background:#ffffffa6;font-size:.94rem;margin:20px 0;overflow-wrap:anywhere}.book-order button:disabled{opacity:.6;cursor:not-allowed}.book-order .book-payment{margin:0;padding:0;background:transparent}.book-payment h3{font-size:1.8rem}.book-payment>p{margin-bottom:16px}.book-pix-total{font-family:var(--title);font-size:2.3rem;color:var(--accent);line-height:1.3}.book-pix{margin-block:24px;padding-block:24px;border-block:1px solid var(--line)}.book-pix-key{font-weight:650;font-size:clamp(1.1rem,4.6vw,1.45rem);letter-spacing:.01em;margin-bottom:20px;overflow-wrap:anywhere}.book-privacy{margin-block:28px}.book-order .book-consent{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}.book-privacy .text-link,.book-order [data-remove-receipt]{background:none;padding:6px 0;min-height:44px}.book-order [type=submit]{margin-top:24px}.book-order input[type=file]{font-size:.9rem!important;margin-top:12px}.book-order input[type=file]::file-selector-button{border:0;border-radius:3px;padding:10px;font:inherit;margin-right:10px;white-space:normal;color:var(--plum);background:var(--soft-plum)}.book-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.book-success{background:#faf7f1;border-radius:12px;padding:40px;overflow-wrap:anywhere}.book-success h3{font-size:2rem}.book-success h4{font-size:1.25rem;color:var(--plum);margin-bottom:12px}.book-success-mark{display:grid;place-items:center;border-radius:50%;width:48px;height:48px;background:var(--green);color:#355c30;font-size:1.5rem;margin-bottom:24px}.book-success [data-order-id]{font-size:.8rem}
+
+.book-checkout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;align-items:start}
+.book-checkout-main{min-width:0}.book-order .book-screen-title{font-size:1.8rem;margin-bottom:12px;outline:none}
+.book-progress{margin:0 0 36px;gap:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.book-progress li{display:flex;align-items:center;gap:10px;padding:18px 8px;border-bottom:2px solid transparent;margin-bottom:-1px;font-size:.93rem}
+.book-progress span{display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;font-size:.8rem;flex:none}
+.book-progress [aria-current]{border-bottom-color:var(--accent)}.book-progress [aria-current] span{background:var(--accent);color:white;border-color:var(--accent)}
+.book-progress .is-complete span{background:var(--soft-plum);border-color:var(--soft-plum);color:var(--accent)}
+.book-step-intro{font-size:.94rem}.book-order .book-form-block{margin-block:26px;padding-bottom:24px}
+.book-order .book-form-block h3,.book-order .book-form-block legend{font-size:1.16rem}
+.book-step-actions{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:32px}
+.book-step-actions>.button:only-child{margin-left:auto}.book-step-actions [type=submit]{margin-top:0}
+.book-back{padding:10px 0;min-height:48px;background:transparent;font-size:.9rem;text-align:left}
+.book-back:hover{text-decoration:underline}.book-freight-info{font-size:.88rem}
+.book-freight-info summary{cursor:pointer;min-height:44px;padding-block:10px;color:var(--accent);font-weight:600}
+.book-freight-info[open] summary{margin-bottom:14px}
+.book-privacy .book-consent{align-items:flex-start}.book-consent a{color:var(--accent)}
+.book-privacy .book-small{font-size:.82rem}.book-summary h3{font-size:1.2rem}.book-summary dl>div{font-size:.86rem;gap:12px}
+.book-total{flex-direction:column;align-items:flex-start!important}.book-summary .book-total dd{text-align:left;max-width:100%;font-size:1.8rem}
+.book-subtotal{display:none}
+@media(max-width:1050px) and (min-width:681px){
+ .book-hero-grid{min-height:660px;justify-content:flex-start;padding-top:64px;padding-bottom:200px}
+ .book-hero-copy{width:58%}.book-hero-copy h1{font-size:2.7rem}
+ .book-hero-background img{object-fit:contain;object-position:center bottom;mask-image:linear-gradient(to bottom,transparent calc(100% - 43.95vw),#000 calc(100% - 43.95vw + 60px))}
+}
+@media(max-width:1000px){.book-checkout{grid-template-columns:minmax(0,1fr) 270px;gap:28px}.book-options{grid-template-columns:1fr}.book-page .container{width:calc(100% - 48px)}}
+@media(max-width:760px){.book-checkout{grid-template-columns:1fr;gap:28px}.book-summary{position:static;margin-top:28px}.book-facts-grid{gap:7%}.book-fields{grid-template-columns:1fr}}
+@media(max-width:680px){
+ .book-hero-grid{min-height:max(780px,150vw);padding-top:40px;padding-bottom:360px;justify-content:flex-start}
+ .book-hero-copy{width:100%;max-width:none}.book-hero-copy h1{font-size:2.1rem;max-width:440px}
+ .book-hero-copy .lead{font-size:1.05rem;margin-top:20px;max-width:460px}
+ .book-hero-background img{object-fit:contain;object-position:center bottom;mask-image:linear-gradient(to bottom,transparent calc(100% - 150vw),#000 calc(100% - 150vw + 90px))}
+ .book-hero-action{margin-top:24px}
+ .book-facts-grid{grid-template-columns:minmax(0,1fr);gap:36px}.book-facts-cover{max-width:210px}
+ .book-page .section{padding-block:52px}.book-fields,.book-options{grid-template-columns:minmax(0,1fr)}
+ .book-progress li{gap:6px;font-size:.76rem;padding:14px 2px}.book-progress span{width:24px;height:24px;font-size:.72rem}
+ .book-success{padding:24px 18px}.book-summary{padding:22px}.book-summary dl>div{gap:14px;font-size:.9rem}
+ .book-total{flex-direction:row;align-items:center!important}.book-summary .book-total dd{font-size:1.35rem;text-align:right}
+ .book-freight-info dl>div{font-size:.85rem;gap:12px}.book-step-actions{flex-direction:column-reverse;align-items:stretch;gap:10px}
+ .book-step-actions>.button{width:100%;min-width:0}.book-step-actions>.book-back{text-align:center}
+ .book-order legend,.book-order h3{font-size:1.3rem}.book-success h3,.book-payment h3{font-size:1.7rem}
+}
+@media(prefers-reduced-motion:reduce){html:has(.book-page){scroll-behavior:auto}}

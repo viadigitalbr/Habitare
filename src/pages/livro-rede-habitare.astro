@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import BookOrder from '../components/BookOrder.astro';
+import '../styles/book.css';
+---
+<Base exactTitle title="Livro Rede Habitare: Sonhar e cuidar | Rede Habitare" description="Conheça o livro Rede Habitare — Sonhar e cuidar da parentalidade em situações de vulnerabilidade e adquira seu exemplar diretamente com a organização." socialImage="/images/livro/og-livro.webp" socialImageAlt="O livro Rede Habitare — Sonhar e cuidar da parentalidade em situações de vulnerabilidade, entre fios coloridos e flores.">
+  <div class="book-page">
+    <section class="book-hero" aria-labelledby="livro-title">
+      <picture class="book-hero-background"><source media="(max-width: 680px)" srcset="/images/livro/banner-mobile.webp" /><img src="/images/livro/banner-desktop.webp" alt="" width="1891" height="831" fetchpriority="high" /></picture>
+      <div class="container book-hero-grid">
+        <div class="book-hero-copy"><p class="eyebrow">Lançamento • Rede Habitare</p><h1 id="livro-title">Uma história de cuidado que agora também pode ser lida.</h1><p class="lead">Mais de duas décadas de escuta, encontros, pesquisa e trabalho com mães, bebês e famílias reunidas em um livro.</p></div>
+        <div class="book-hero-action"><a href="#pedido" class="button" data-book-cta="hero">Quero meu exemplar <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+    <section class="section book-intro"><div class="container reading"><p class="eyebrow">Sobre o livro</p><h2>Um livro tecido a muitas mãos</h2><p>Há mais de duas décadas, a Rede Habitare constrói uma história feita de encontros.</p><p>Entre a clínica, a pesquisa, a formação e o trabalho junto a mães, bebês e famílias em contextos de vulnerabilidade, foram se entrelaçando experiências, saberes, perguntas e descobertas.</p><p>Agora, parte dessa trajetória ganha as páginas de um livro.</p><p><strong>“Rede Habitare — Sonhar e cuidar da parentalidade em situações de vulnerabilidade”</strong> reúne reflexões teóricas e experiências construídas a partir do trabalho da Habitare, aproximando a psicanálise da realidade de quem cuida, de quem é cuidado e de quem se dedica a pensar a parentalidade.</p><p>Um livro que nasce da prática e volta para ela como conhecimento, memória e possibilidade de novos encontros.</p></div></section>
+    <section class="section book-dialogue"><div class="container reading"><p class="eyebrow">O que você vai encontrar</p><h2>Experiência, clínica e reflexão em diálogo</h2><p>Ao longo de suas páginas, o livro compartilha diferentes olhares sobre a parentalidade em situações de vulnerabilidade e sobre o cuidado com os vínculos que começam a se construir desde o início da vida.</p><p>São experiências que atravessam a prática clínica, a reflexão teórica, a pesquisa e o trabalho realizado pela Rede Habitare ao longo de sua trajetória.</p><p>Mais do que registrar uma história, esta obra compartilha um conhecimento construído coletivamente — entre profissionais, instituições, famílias e todas as pessoas que fizeram e fazem parte dessa rede.</p></div></section>
+    <section class="section"><div class="container book-facts-grid"><img class="book-cover book-facts-cover" src="/images/livro/capa.webp" alt="Capa de Rede Habitare, com bordados e fios que representam vínculos, histórias e cuidado." width="750" height="1106" loading="lazy" /><div><p class="eyebrow">O livro</p><h2>Rede Habitare</h2><p class="book-subtitle">Sonhar e cuidar da parentalidade em situações de vulnerabilidade</p><p>Organização<br /><strong>Tereza Marques de Oliveira</strong></p><dl class="book-facts"><div><dt>Editora</dt><dd>Zagodoni</dd></div><div><dt>Edição</dt><dd>1ª edição · 2026</dd></div><div><dt>Páginas</dt><dd>232</dd></div><div><dt>Formato</dt><dd>16 × 23 cm</dd></div><div><dt>ISBN</dt><dd>978-85-5524-194-9</dd></div></dl><p class="book-price">R$ 89,00 <span>por exemplar</span></p><a class="button" href="#pedido" data-book-cta="ficha">Quero comprar o livro <span aria-hidden="true">↓</span></a></div></div></section>
+    <section class="section book-purchase" id="pedido" tabindex="-1" aria-labelledby="pedido-title"><div class="container"><div class="reading book-purchase-intro"><p class="eyebrow">Compre diretamente com a Rede Habitare</p><h2 id="pedido-title">Leve essa história com você.</h2><p>Ao adquirir seu exemplar diretamente com a Rede Habitare, você compra um dos livros destinados à própria organização.</p><p>Escolha a quantidade de exemplares e como prefere recebê-los. Antes do pagamento, você verá o valor total do seu pedido.</p></div><BookOrder /></div></section>
+  </div>
+</Base>
+<script>
+  import { trackBook } from '../lib/analytics';
+  document.querySelectorAll<HTMLAnchorElement>('[data-book-cta]').forEach(link => link.addEventListener('click', () => trackBook('livro_cta_click', { position: link.dataset.bookCta! })));
+</script>

@@ -1,0 +1,120 @@
+---
+const enabled = import.meta.env.PUBLIC_RELEASE_READY === 'true';
+const measurementId = 'G-R427M1B8Q3';
+---
+<div class="privacy-preferences" data-privacy-root data-analytics-enabled={String(enabled)} data-measurement-id={measurementId}>
+  <dialog id="analytics-dialog" aria-labelledby="analytics-title">
+    <div class="privacy-dialog-body">
+      <button type="button" class="privacy-close" data-analytics-close aria-label="Fechar preferências de cookies">×</button>
+      <h2 id="analytics-title">Sua privacidade</h2>
+      <p>Usamos cookies do Google Analytics para entender a navegação e melhorar o site, somente com seu consentimento. Você pode recusar ou mudar sua escolha a qualquer momento.</p>
+      <p class="privacy-status" data-consent-status aria-live="polite"></p>
+      <div class="privacy-actions"><button type="button" data-consent-accept>Aceitar Analytics</button><button type="button" data-consent-deny>Recusar Analytics</button><button type="button" data-consent-withdraw hidden>Retirar consentimento</button></div>
+    </div>
+  </dialog>
+  <dialog id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="privacy-dialog-body">
+      <button type="button" class="privacy-close" data-privacy-close aria-label="Fechar políticas de privacidade">×</button>
+      <h2 id="privacy-title">Políticas de privacidade</h2>
+      <h3>Dados do seu pedido</h3>
+      <p>Seus dados serão utilizados pela Rede Habitare exclusivamente para identificar o pagamento, processar seu pedido, realizar a entrega ou retirada do livro e entrar em contato com você sobre esta compra.</p>
+      <h3>Estatísticas de navegação</h3>
+      <p>Este site utiliza o Google Analytics 4 (GA4) para coletar informações estatísticas sobre navegação, como páginas acessadas, tempo de permanência e tipo de dispositivo. O objetivo é compreender o uso do site e melhorar sua experiência.</p>
+      <p>O uso do Analytics ocorre somente mediante consentimento. Você pode recusar ou retirar esse consentimento a qualquer momento.</p>
+      <p>Não utilizamos esses dados para publicidade personalizada nem para venda de informações pessoais.</p>
+      <p>O consentimento para Analytics é opcional e independente do seu pedido. Você pode alterar essa escolha em “Preferências de cookies”, no final da página.</p>
+    </div>
+  </dialog>
+</div>
+<script>
+  const root = document.querySelector<HTMLElement>('[data-privacy-root]')!;
+  const dialog = root.querySelector<HTMLDialogElement>('#analytics-dialog')!;
+  const policy = root.querySelector<HTMLDialogElement>('#privacy-dialog')!;
+  const key = 'habitare-analytics-consent-v1';
+  const id = root.dataset.measurementId!;
+  const enabled = root.dataset.analyticsEnabled === 'true';
+  type GAWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; habitareAnalyticsAllowed?: boolean; [key: `ga-disable-${string}`]: boolean };
+  const ga = window as unknown as GAWindow;
+  let consent: string | null = null;
+  try { consent = localStorage.getItem(key); } catch { /* Choice remains valid in memory. */ }
+  const status = root.querySelector<HTMLElement>('[data-consent-status]')!;
+  const render = () => {
+    root.querySelector<HTMLButtonElement>('[data-consent-withdraw]')!.hidden = consent !== 'granted';
+    status.hidden = consent === null;
+    status.textContent = consent === 'granted' ? 'Sua escolha: Analytics permitido.' : 'Analytics não autorizado. Você pode navegar e fazer seu pedido normalmente.';
+  };
+  function start() {
+    if (!enabled || consent !== 'granted' || document.getElementById('habitare-ga')) return;
+    ga[`ga-disable-${id}`] = false;
+    ga.dataLayer = ga.dataLayer || [];
+    ga.gtag = function () { ga.dataLayer!.push(arguments); };
+    ga.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    ga.gtag('js', new Date());
+    ga.gtag('config', id, { allow_google_signals: false, allow_ad_personalization_signals: false, page_location: location.origin + location.pathname, page_referrer: document.referrer ? new URL(document.referrer).origin : '', send_page_view: true });
+    ga.habitareAnalyticsAllowed = true;
+    const script = document.createElement('script'); script.id = 'habitare-ga'; script.async = true; script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`; document.head.append(script);
+  }
+  function choose(value: string) {
+    consent = value;
+    try { localStorage.setItem(key, value); } catch {}
+    if (value === 'granted') start();
+    else {
+      ga.habitareAnalyticsAllowed = false;
+      ga[`ga-disable-${id}`] = true;
+      document.getElementById('habitare-ga')?.remove();
+      for (const cookie of document.cookie.split(';')) {
+        const name = cookie.split('=')[0].trim();
+        if (!name.startsWith('_ga')) continue;
+        const domains = ['', location.hostname, '.' + location.hostname, '.redehabitare.org.br'];
+        for (const domain of domains) document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax${domain ? '; Domain=' + domain : ''}`;
+      }
+    }
+    render(); dialog.close();
+  }
+  document.addEventListener('click', event => {
+    const target = event.target as Element;
+    if (target.closest('[data-privacy-open]')) { event.preventDefault(); policy.showModal(); }
+    if (target.closest('[data-analytics-open]')) { event.preventDefault(); dialog.showModal(); }
+  });
+  root.querySelector('[data-privacy-close]')!.addEventListener('click', () => policy.close());
+  root.querySelector('[data-analytics-close]')!.addEventListener('click', () => dialog.close());
+  root.querySelector('[data-consent-accept]')!.addEventListener('click', () => choose('granted'));
+  root.querySelector('[data-consent-deny]')!.addEventListener('click', () => choose('denied'));
+  root.querySelector('[data-consent-withdraw]')!.addEventListener('click', () => choose('denied'));
+  window.addEventListener('storage', event => {
+    if (event.key !== key) return;
+    if (event.newValue === 'granted') { consent = 'granted'; render(); start(); }
+    else choose('denied');
+  });
+  render(); start();
+  if (consent === null) {
+    let seen = false;
+    try { seen = sessionStorage.getItem('habitare-analytics-notice-seen') === 'yes'; } catch {}
+    if (!seen) {
+      dialog.showModal();
+      try { sessionStorage.setItem('habitare-analytics-notice-seen', 'yes'); } catch {}
+    }
+  }
+</script>
+<style>
+  .privacy-preferences{font-size:.8rem}
+  .privacy-preferences dialog{border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:min(560px,calc(100% - 32px));max-height:85dvh;padding:0}
+  .privacy-preferences dialog::backdrop{background:#302a2440}
+  #analytics-dialog{position:fixed;inset:auto 20px 20px auto;margin:0;width:min(400px,calc(100% - 32px));max-height:calc(100dvh - 40px);box-shadow:0 8px 32px #302a2420}
+  #analytics-dialog::backdrop{background:transparent}
+  #analytics-dialog .privacy-dialog-body{padding:24px}
+  #analytics-dialog h2{font-size:1.3rem;margin-bottom:12px}
+  #analytics-dialog p{font-size:.85rem;line-height:1.6}
+  #analytics-dialog .privacy-actions{margin-top:12px;gap:8px 20px}
+  @media(max-width:600px){#analytics-dialog{right:16px;bottom:16px}}
+  .privacy-dialog-body{padding:32px;position:relative}
+  .privacy-dialog-body h2{font-size:1.6rem;margin-bottom:20px;padding-right:30px}
+  .privacy-dialog-body h3{font-size:1rem;margin-block:24px 12px}
+  .privacy-dialog-body p{margin-bottom:14px;font-size:.92rem;line-height:1.7}
+  .privacy-close{position:absolute;right:16px;top:10px;font-size:1.6rem;width:44px;min-height:44px;background:transparent}
+  .privacy-actions{display:flex;flex-wrap:wrap;gap:8px 22px;border-top:1px solid var(--line);padding-top:10px;margin-top:20px}
+  .privacy-actions button{font-size:.8rem;text-decoration:underline;text-underline-offset:4px;background:transparent;min-height:44px;padding:8px 0}
+  .privacy-dialog-body .privacy-status{font-size:.8rem}
+  :global(body:has(.book-page)) .privacy-preferences{--accent:#b03f24;--paper:#f8f3ed}
+  @media(max-width:600px){.privacy-dialog-body{padding:28px 24px}}
+</style>

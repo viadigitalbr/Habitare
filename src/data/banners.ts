@@ -25,4 +25,12 @@ export const banners = [
     secondaryCta: '', secondaryHref: '',
     desktop: '/images/banner-doe-desktop.png', mobile: '/images/banner-doe-mobile.png', position: '82% center', theme: 'green',
   },
+  {
+    id: 'livro-rede-habitare', active: true, eyebrow: 'LANÇAMENTO · REDE HABITARE',
+    title: 'Uma história de cuidado que agora também pode ser lida.',
+    text: 'Conheça o livro da Rede Habitare, que reúne mais de duas décadas de experiências, encontros e reflexões sobre parentalidade e cuidado.',
+    cta: 'Conheça o livro', href: '/livro-rede-habitare',
+    secondaryCta: '', secondaryHref: '',
+    desktop: '/images/livro/banner-desktop.webp', mobile: '/images/livro/banner-mobile.webp', position: 'center center', theme: 'book',
+  },
 ];

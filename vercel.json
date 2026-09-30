@@ -5,5 +5,10 @@
       "destination": "/seja-membro",
       "statusCode": 301
     }
-  ]
+  ],
+  "functions": {
+    "api/pedidos-livro.mjs": {
+      "includeFiles": "src/lib/book.ts"
+    }
+  }
 }

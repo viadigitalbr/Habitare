@@ -1,0 +1,52 @@
+{
+  "screenshots": [
+    "lp-390",
+    "lp-1440"
+  ],
+  "layouts": [
+    {
+      "viewport": 360,
+      "scroll": 360,
+      "h1": 1,
+      "color": "rgb(176, 63, 36)",
+      "bg": "rgb(248, 243, 237)"
+    },
+    {
+      "viewport": 390,
+      "scroll": 390,
+      "h1": 1,
+      "color": "rgb(176, 63, 36)",
+      "bg": "rgb(248, 243, 237)"
+    },
+    {
+      "viewport": 768,
+      "scroll": 768,
+      "h1": 1,
+      "color": "rgb(176, 63, 36)",
+      "bg": "rgb(248, 243, 237)"
+    },
+    {
+      "viewport": 1024,
+      "scroll": 1024,
+      "h1": 1,
+      "color": "rgb(176, 63, 36)",
+      "bg": "rgb(248, 243, 237)"
+    },
+    {
+      "viewport": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "color": "rgb(176, 63, 36)",
+      "bg": "rgb(248, 243, 237)"
+    }
+  ],
+  "journeys": [
+    "Três telas exclusivas; sem aviso inicial; prévia local permite revisar pagamento com Pix e envio bloqueados",
+    "Correios: aceite obrigatório, modal informativo, ida/volta preserva campos, edição invalida Pix, retry idempotente e sucesso",
+    "Retirada: locais na etapa 1; dados obrigatórios sem endereço na etapa 2; sem frete na etapa 3",
+    "Corte de retirada devolve ao primeiro passo para escolher Correios",
+    "Analytics separado: modal no acesso, aceite/recusa/revogação; preview sem rastreamento"
+  ],
+  "consoleErrors": [],
+  "mode": "API real com transporte Resend/Redis simulado; nenhum e-mail enviado"
+}
