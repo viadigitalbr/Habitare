@@ -76,7 +76,7 @@ h1,h2,h3,h4,h5,h6,.modality h2,.footer-grid h2{font-family:var(--title)}
  .showcase .slide .actions{min-height:0;gap:20px}
  .showcase .slide .button{padding:12px 17px;font-size:.88rem;gap:12px}
  .showcase .slide:after{display:block;background:linear-gradient(90deg,#f8f7f2d9,#f8f7f2aa 60%,#f8f7f255)}
- .showcase .slide:first-child:after{display:none}
+ .showcase .slide[data-banner="institucional"]:after{display:none}
  .showcase .carousel-controls{height:100%;inset:0}
  .showcase .carousel-dots{bottom:20px}
  .showcase .carousel-navigation [data-previous]{left:4px;top:50%;width:40px;min-width:40px}
@@ -129,3 +129,9 @@ h1,h2,h3,h4,h5,h6,.modality h2,.footer-grid h2{font-family:var(--title)}
 .support-detail .button{max-width:100%;text-align:center}
 
 .care-options .modality-icon{width:264px;max-width:100%;height:164px;object-fit:contain;filter:none;margin-bottom:20px}
+
+/* Natural heights prevent Safari from stretching the image over the card copy. */
+@media(max-width:600px){
+ .participation-page .support-compact .support-image{height:auto;flex:none}
+ .participation-page .support-compact .support-copy{flex:none;min-width:0;width:100%}
+}
