@@ -8,4 +8,9 @@ import {site} from '../data/site';
     <div><h2>Onde estamos</h2><p>{site.address}</p></div>
   </div>
   <div class="container footer-bottom"><p>© {new Date().getFullYear()} {site.legalName}.</p><p>CNPJ: {site.cnpj}</p></div>
+  <div class="container footer-privacy"><button type="button" data-privacy-open>Políticas de Privacidade</button><button type="button" data-analytics-open>Preferências de Cookies</button></div>
 </footer>
+<style>
+.footer-privacy{display:flex;flex-wrap:wrap;gap:4px 24px;padding-bottom:24px}
+.footer-privacy button{background:transparent;color:inherit;font:inherit;font-size:.78rem;min-height:44px;padding:8px 0;text-decoration:underline;text-underline-offset:4px}
+</style>

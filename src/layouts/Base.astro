@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PrivacyConsent from '../components/PrivacyConsent.astro';
 import '../styles/global.css';
 interface Props { title: string; description: string; exactTitle?: boolean; socialImage?: string; socialImageAlt?: string; }
 const {title, description, exactTitle = false, socialImage, socialImageAlt = ''} = Astro.props;
@@ -27,5 +28,5 @@ const ready = import.meta.env.PUBLIC_RELEASE_READY === 'true';
     <link rel="preload" href="/fonts/lora-variable.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fonts/raleway-variable.ttf" as="font" type="font/ttf" crossorigin />
   </head>
-  <body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo"><slot /></main><Footer /></body>
+  <body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo"><slot /></main><PrivacyConsent /><Footer /></body>
 </html>

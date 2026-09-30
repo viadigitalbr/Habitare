@@ -8,7 +8,9 @@
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "check": "astro check"
+    "check": "astro check",
+    "dev:book": "node --experimental-strip-types scripts/dev-book.mjs",
+    "test:book": "node --experimental-strip-types --test tests/book.test.mjs"
   },
   "dependencies": { "astro": "7.3.5" },
   "devDependencies": { "@astrojs/check": "^0.9.6", "typescript": "^5.9.3" }
