@@ -28,7 +28,7 @@ export const paths = {
 export const support = [
   {
     slug: 'seja-membro',
-    title: 'Seja membro da Habitare',
+    title: 'Faça parte da nossa rede',
     heading: 'Sua escuta pode fazer parte desta rede de cuidado.',
     summary: 'Junte-se a nós e faça parte de uma rede que transforma vidas de mães e bebês.',
     image: '/images/facaparte-sejamembro.png', alt: 'Ilustração de uma mulher participando de uma conversa pelo computador.',
