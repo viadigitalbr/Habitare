@@ -74,10 +74,11 @@ const measurementId = 'G-R427M1B8Q3';
   document.addEventListener('click', event => {
     const target = event.target as Element;
     if (target.closest('[data-privacy-open]')) { event.preventDefault(); policy.showModal(); }
-    if (target.closest('[data-analytics-open]')) { event.preventDefault(); dialog.showModal(); }
+    if (target.closest('[data-analytics-open]')) { event.preventDefault(); if (dialog.open) dialog.close(); dialog.showModal(); }
   });
   root.querySelector('[data-privacy-close]')!.addEventListener('click', () => policy.close());
   root.querySelector('[data-analytics-close]')!.addEventListener('click', () => dialog.close());
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && dialog.open) dialog.close(); });
   root.querySelector('[data-consent-accept]')!.addEventListener('click', () => choose('granted'));
   root.querySelector('[data-consent-deny]')!.addEventListener('click', () => choose('denied'));
   root.querySelector('[data-consent-withdraw]')!.addEventListener('click', () => choose('denied'));
@@ -91,7 +92,8 @@ const measurementId = 'G-R427M1B8Q3';
     let seen = false;
     try { seen = sessionStorage.getItem('habitare-analytics-notice-seen') === 'yes'; } catch {}
     if (!seen) {
-      dialog.showModal();
+      // Aviso inicial não modal: o restante do site continua clicável.
+      dialog.show();
       try { sessionStorage.setItem('habitare-analytics-notice-seen', 'yes'); } catch {}
     }
   }
@@ -100,7 +102,7 @@ const measurementId = 'G-R427M1B8Q3';
   .privacy-preferences{font-size:.8rem}
   .privacy-preferences dialog{border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);width:min(560px,calc(100% - 32px));max-height:85dvh;padding:0}
   .privacy-preferences dialog::backdrop{background:#302a2440}
-  #analytics-dialog{position:fixed;inset:auto 20px 20px auto;margin:0;width:min(400px,calc(100% - 32px));max-height:calc(100dvh - 40px);box-shadow:0 8px 32px #302a2420}
+  #analytics-dialog{position:fixed;inset:auto 20px 20px auto;margin:0;z-index:1000;width:min(400px,calc(100% - 32px));max-height:calc(100dvh - 40px);box-shadow:0 8px 32px #302a2420}
   #analytics-dialog::backdrop{background:transparent}
   #analytics-dialog .privacy-dialog-body{padding:24px}
   #analytics-dialog h2{font-size:1.3rem;margin-bottom:12px}
