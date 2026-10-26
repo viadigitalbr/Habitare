@@ -1,4 +1,6 @@
 export const BOOK = {
+  // Commercial stock pause: shared by the static page and the order API.
+  salesPaused: true,
   path: '/livro-rede-habitare', price: 8900, pix: '05.407.750/0001-04',
   cutoff: Date.parse('2026-10-23T00:00:00-03:00'), maxFileBytes: 3_000_000,
   title: 'Rede Habitare — Sonhar e cuidar da parentalidade em situações de vulnerabilidade',

@@ -85,13 +85,14 @@ function emailPayload(order, totals, review, file, bytes, env) {
   };
 }
 
-export function createBookHandler({ env = process.env, fetcher = fetch, clock = Date.now } = {}) {
+export function createBookHandler({ env = process.env, fetcher = fetch, clock = Date.now, salesPaused = BOOK.salesPaused } = {}) {
   return async function handle(request) {
     const now = clock();
-    if (request.method === 'GET') return json({ available: ready(env), now, pickupAvailable: pickupAvailable(now), cutoff: BOOK.cutoff, privacyVersion: PRIVACY_VERSION });
+    if (request.method === 'GET') return json({ available: !salesPaused && ready(env), salesPaused, now, pickupAvailable: pickupAvailable(now), cutoff: BOOK.cutoff, privacyVersion: PRIVACY_VERSION });
     if (request.method !== 'POST') return json({ code: 'method_not_allowed' }, 405);
     try {
       checkOrigin(request, env);
+      if (salesPaused) throw new RequestError('out_of_stock', 409);
       if (!ready(env)) throw new RequestError('not_configured', 503);
       await rateLimit(request, env, fetcher, now);
       const body = await limitedBody(request);

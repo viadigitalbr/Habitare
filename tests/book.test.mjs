@@ -27,7 +27,7 @@ test('CPF e validação por modalidade', () => {
 function setup({ now = before, env: extra = {}, sendStatus = 200 } = {}) {
   const calls=[];
   const env = { BOOK_ORDERS_ENABLED:'true',RESEND_API_KEY:'test-only',BOOK_ORDER_FROM_EMAIL:'Habitare <test@example.com>',BOOK_ORDER_SECRET:'test-secret-longer-than-thirty-two-characters',UPSTASH_REDIS_REST_URL:'https://redis.example.com',UPSTASH_REDIS_REST_TOKEN:'test-only',...extra };
-  const handle = createBookHandler({env,clock:()=>now,fetcher:async(url,options)=>{
+  const handle = createBookHandler({salesPaused:false,env,clock:()=>now,fetcher:async(url,options)=>{
     if(url.includes('redis.example.com')) return Response.json([{result:1},{result:1}]);
     calls.push({url,options}); return Response.json(sendStatus===200?{id:'mock-email'}:{error:'no'}, {status:sendStatus});
   }});
@@ -82,4 +82,19 @@ test('token adulterado e expirado impedem envio',async()=>{
   const {handle}=setup();const review=await quote(handle);
   assert.equal((await handle(req(submission(review.token+'x')))).status,409);
   const late=setup({now:before+23*60*60*1000});const response=await late.handle(req(submission(review.token)));assert.equal(response.status,409);assert.equal((await response.json()).code,'review_expired');
+});
+
+// Exercise the deployed default even when the operational switch is still enabled.
+test('pausa comercial bloqueia consulta, revisão e envio sem chamar integrações', async () => {
+  let calls = 0;
+  const handle = createBookHandler({env: {BOOK_ORDERS_ENABLED:'true'}, fetcher: async () => { calls++; throw new Error('Unexpected network'); }});
+  const status = await (await handle(new Request('https://redehabitare.org.br/api/pedidos-livro'))).json();
+  assert.equal(status.available, false);
+  assert.equal(status.salesPaused, true);
+  for (const contentType of ['application/json', 'multipart/form-data; boundary=test']) {
+    const response = await handle(new Request('https://redehabitare.org.br/api/pedidos-livro', {method:'POST', headers:{origin:'https://redehabitare.org.br','content-type':contentType},body:'{}'}));
+    assert.equal(response.status,409);
+    assert.equal((await response.json()).code,'out_of_stock');
+  }
+  assert.equal(calls,0);
 });
