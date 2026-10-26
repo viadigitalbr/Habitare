@@ -67,3 +67,5 @@
  .book-order legend,.book-order h3{font-size:1.3rem}.book-success h3,.book-payment h3{font-size:1.7rem}
 }
 @media(prefers-reduced-motion:reduce){html:has(.book-page){scroll-behavior:auto}}
+
+.book-stock-notice{margin-bottom:0}

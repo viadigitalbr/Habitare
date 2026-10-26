@@ -128,6 +128,7 @@ async function status() {
 const messages: Record<string, string> = {
   invalid_fields: 'Confira os campos indicados para continuar.', invalid_file: 'Confira o comprovante anexado.',
   file_too_large: 'O comprovante deve ter até 3 MB.', rate_limited: 'Aguarde alguns minutos antes de tentar novamente. Seus dados continuam nesta página.',
+  out_of_stock: 'Exemplares temporariamente esgotados. As vendas serão retomadas quando houver novos livros disponíveis.',
   not_configured: 'Não foi possível abrir o pagamento agora. Seus dados foram preservados. Tente novamente em instantes.',
   review_expired: 'Esta revisão expirou. Se já tentou enviar ou fez o Pix, fale com a Habitare antes de iniciar outro pedido.',
   review_required: 'Os dados mudaram. Revise o pedido antes de continuar.', total_changed: 'O valor foi atualizado. Revise o pedido antes de continuar.',
