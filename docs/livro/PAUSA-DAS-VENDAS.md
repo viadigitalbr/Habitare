@@ -1,4 +1,10 @@
-# Pausa de vendas — 26/10/2026
+# Vendas do livro — pausa e retomada
+
+## Retomada — 06/11/2026
+
+Reativação solicitada por Viviana. `BOOK.salesPaused=false` restaura a seção e os CTAs originais. Mantidos preço de R$89, fretes existentes e ordem atual dos banners. Retirada no lançamento segue encerrada pelo prazo original, tanto na interface quanto na API; somente Correios disponível. Validar em HML antes de autorizar PRD. Nenhuma variável ou credencial foi alterada.
+
+## Histórico: pausa de 26/10/2026
 
 Sem previsão de reposição. `BOOK.salesPaused` em `src/lib/book.ts` controla a mensagem estática e o bloqueio da API. A pausa prevalece sobre `BOOK_ORDERS_ENABLED=true`; não depende de alterar credenciais na Vercel.
 
